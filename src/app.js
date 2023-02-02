@@ -28,16 +28,18 @@ app.use(express.static(_dirnamePages + '/assets'));
 //Routage vers page accueil
 app.get('/', (request, response) => {
     response.render('accueil', {
-        anneeDeb: 2022
+        anneeDeb: saison.anneeDebut,
+        anneeFin: saison.anneeFin
     });
 })
 
 //Routage POST page accueil
 app.post('/', (request, response) => {
     classSaison(request.body);
-    // response.render('accueil', {
-    //     anneeDeb: saison.anneeDebut
-    // });
+    response.render('accueil', {
+        anneeDeb: saison.anneeDebut,
+        anneeFin: saison.anneeFin
+    });
 })
 
 //Création du serveur HTTP

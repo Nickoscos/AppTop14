@@ -3,8 +3,8 @@ let fs = require('fs');
 const event = new EventEmitter;
 
 let saison = {
-    anneeDebut: 0,
-    anneeFin: 0
+    anneeDebut: 2022,
+    anneeFin: 2023
 };
 
 
@@ -12,7 +12,7 @@ let saison = {
 function classSaison(data){
     console.log(data)
     saison.anneeDebut = data.anneeDeb;
-    saison.anneeFin = data.anneeDeb+1;
+    saison.anneeFin = Number(data.anneeDeb)+1;
 }
 
 module.exports = {classSaison, saison};
