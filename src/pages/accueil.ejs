@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Top 14 Stats</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
@@ -28,19 +28,15 @@
     </div>
 
     <!-- Interaction utilisateur -->
-    <div class="container-fluid py-1">
-        <div class="container SelSeason text-center">
-            <h2>Sélection de la saison</h2>
-            <form id="#IMCForm" class="justify-content-center" method="POST">
-                <div class="row align-items-start text-center justify-content-center">
-                    <div class="col-3 col-md-1"><label>Saison: </label></div>
-                    <div class="col-4 col-md-4"><input type="text" name="nom" id="anneeDeb" value=""></div>
-                    <div class="col-1 col-md-1"><p id="anneeFin">/2023</p></div>
-                    <div class="col-3 col-md-2"><button type="submit" id="#btn">Afficher</button></div>
-                </div>
-            </form>
-            </div>
-        </div>
+    <div class="container-fluid SelSeason border text-center py-1">
+        <h2>Selectionner la saison :</h2>
+        <form class="form-inline">
+          <div class="form-group">
+            <label class="mr-2" style="vertical-align: middle;" for="saison">Saison:</label>
+            <input style="vertical-align: middle;" type="number" value="2022" min="2000" max="2022">
+            <label class="mr-2" style="vertical-align: middle;" for="annee+1">/2023</label>
+          </div>
+        </form>
     </div>
 
     <!-- Classement Général -->

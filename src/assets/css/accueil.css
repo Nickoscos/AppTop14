@@ -10,6 +10,12 @@ h1{
 
 .SelSeason{
     border: solid;
-    vertical-align: middle;
     background-color: rgb(99, 164, 238);
+}
+
+input
+{
+  width: 40%;
+  height: 30px;
+  max-width: 100px;
 }
