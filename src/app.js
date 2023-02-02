@@ -11,7 +11,12 @@ let http = require('http');
 let fs = require('fs');
 let path = require('path');
 const { Server } = require("socket.io");
-const { classSaison } = require('./js/choixSaison');
+const { classSaison, saison } = require('./js/choixSaison');
+
+// bodyparser permet d'interpreter les paramètres des requêtes POST et PUT
+const bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 app.set('view engine', 'ejs'); //indique que la blibliothèque EJS sera utilisée
 app.set('views', './src/pages'); //indique le chemin d'accès des pages web 
@@ -22,13 +27,18 @@ app.use(express.static(_dirnamePages + '/assets'));
 
 //Routage vers page accueil
 app.get('/', (request, response) => {
-    response.render('accueil');
+    response.render('accueil', {
+        anneeDeb: 2022
+    });
 })
 
 //Routage POST page accueil
 app.post('/', (request, response) => {
     classSaison(request.body);
-});
+    // response.render('accueil', {
+    //     anneeDeb: saison.anneeDebut
+    // });
+})
 
 //Création du serveur HTTP
 const server = http.createServer(app);
@@ -37,7 +47,7 @@ const server = http.createServer(app);
 const io = new Server(server);
 io.on('connection', socket => {
     console.log(`connect ${socket.id}`);
-    socket.emit('actuIMC', imcFct.userIMC); //Génère l'évènement provoquant l'envoie des montants de devise actualisés après calcul
+    socket.emit('choixSaison', classSaison); //Génère l'évènement provoquant l'envoie des montants de devise actualisés après calcul
 
 });
 

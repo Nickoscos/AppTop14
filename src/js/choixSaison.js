@@ -9,8 +9,10 @@ let saison = {
 
 
 //Fonction qui récupère l'année de départ de la saison
-function classSaison(anneeFin){
-    saison.anneeFin = saison.anneeDebut+1;
+function classSaison(data){
+    console.log(data)
+    saison.anneeDebut = data.anneeDeb;
+    saison.anneeFin = data.anneeDeb+1;
 }
 
 module.exports = {classSaison, saison};

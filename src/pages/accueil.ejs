@@ -30,11 +30,10 @@
     <!-- Interaction utilisateur -->
     <div class="container-fluid SelSeason border text-center py-1">
         <h2>Selectionner la saison :</h2>
-        <form class="form-inline">
+        <form class="form-inline" method="POST">
           <div class="form-group">
             <label class="mr-2" style="vertical-align: middle;" for="saison">Saison:</label>
-            <input style="vertical-align: middle;" type="number" value="<%= annee %>" min="2000" max="2022">
-            <label class="mr-2" style="vertical-align: middle;" for="annee+1">/<%= annee %></label>
+            <input style="vertical-align: middle;" type="number" name="anneeDeb" id="anneeDeb" min="2000" max="2022">
           </div>
           <button type="submit" id="#btn">Calculer</button>
         </form>
