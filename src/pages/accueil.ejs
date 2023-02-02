@@ -33,9 +33,10 @@
         <form class="form-inline">
           <div class="form-group">
             <label class="mr-2" style="vertical-align: middle;" for="saison">Saison:</label>
-            <input style="vertical-align: middle;" type="number" value="2022" min="2000" max="2022">
-            <label class="mr-2" style="vertical-align: middle;" for="annee+1">/2023</label>
+            <input style="vertical-align: middle;" type="number" value="<%= annee %>" min="2000" max="2022">
+            <label class="mr-2" style="vertical-align: middle;" for="annee+1">/<%= annee %></label>
           </div>
+          <button type="submit" id="#btn">Calculer</button>
         </form>
     </div>
 
