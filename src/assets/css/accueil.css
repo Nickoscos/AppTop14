@@ -1,5 +1,15 @@
-h1  {
+h1{
     color: red;
-    background-color: black;
     text-align: center;
-    }
+}
+
+.title{
+    background-color: black;
+    vertical-align: middle;
+}
+
+.SelSeason{
+    border: solid;
+    vertical-align: middle;
+    background-color: rgb(99, 164, 238);
+}
