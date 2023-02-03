@@ -36,14 +36,21 @@
             <input style="vertical-align: middle;" type="number" name="anneeDeb" id="anneeDeb" value="<%= anneeDeb %>" min="2000" max="2022">
             <label class="mr-2" style="vertical-align: middle;" type="number" name="anneeFin" id="anneeFin" for="anneeFin">/<%= anneeFin %></label>
           </div>
-          <button type="submit" id="#btn">Calculer</button>
+          <button type="submit" id="#btn">Afficher</button>
         </form>
     </div>
 
     <!-- Classement Général -->
-    <div class="container-fluid classGen">
-
-    </div>
+    <% for (var k = 0; k < listTeams.length; k++) {
+        var Team = listTeams[k]; %>
+        <div class="container-fluid classGen">
+            <!-- Contenu du Post -->
+            <div class="row">
+                <div><h4 style="float:left"><%= Team.name %></H4></div>
+            </div>
+        </div>
+    <% } %>
+    
 
     <!-- Top 5 Joueurs -->
     <div class="container-fluid MVP">

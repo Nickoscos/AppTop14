@@ -11,7 +11,7 @@ let http = require('http');
 let fs = require('fs');
 let path = require('path');
 const { Server } = require("socket.io");
-const { classSaison, saison } = require('./js/choixSaison');
+const { classSaison, saison, getTeams, listTeams } = require('./js/choixSaison');
 
 // bodyparser permet d'interpreter les paramètres des requêtes POST et PUT
 const bodyParser = require('body-parser');
@@ -27,19 +27,17 @@ app.use(express.static(_dirnamePages + '/assets'));
 
 //Routage vers page accueil
 app.get('/', (request, response) => {
+    console.log(listTeams);
     response.render('accueil', {
         anneeDeb: saison.anneeDebut,
-        anneeFin: saison.anneeFin
+        anneeFin: saison.anneeFin,
+        listTeams: listTeams
     });
 })
 
 //Routage POST page accueil
 app.post('/', (request, response) => {
-    classSaison(request.body);
-    response.render('accueil', {
-        anneeDeb: saison.anneeDebut,
-        anneeFin: saison.anneeFin
-    });
+    classSaison(request.body, response);
 })
 
 //Création du serveur HTTP
