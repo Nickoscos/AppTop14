@@ -31,7 +31,7 @@ function classSaison(data, response){
         "method": "GET",
         "hostname": "rugby-live-data.p.rapidapi.com",
         "port": null,
-        "path": "/teams/1230/"+saison.anneeFin,
+        "path": "/standings/1230/"+saison.anneeFin,
         "headers": {
             "X-RapidAPI-Key": "937e22c249msha8bb96df5db449bp1542b3jsn3940f5b01b7d",
             "X-RapidAPI-Host": "rugby-live-data.p.rapidapi.com",
@@ -49,7 +49,7 @@ function classSaison(data, response){
         res.on("end", function () {
             const body = Buffer.concat(chunks);
             let listTeams =[];
-            listTeams= JSON.parse(body).results;
+            listTeams= JSON.parse(body).results.standings[0].teams;
             console.log(listTeams);
             response.render('accueil', {
                 anneeDeb: saison.anneeDebut,

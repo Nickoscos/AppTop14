@@ -28,7 +28,7 @@
     </div>
 
     <!-- Interaction utilisateur -->
-    <div class="container-fluid SelSeason border text-center py-1">
+    <div class="container SelSeason border text-center py-1">
         <h2>Selectionner la saison :</h2>
         <form class="form-inline" method="POST">
           <div class="form-group">
@@ -41,16 +41,25 @@
     </div>
 
     <!-- Classement Général -->
-    <% for (var k = 0; k < listTeams.length; k++) {
-        var Team = listTeams[k]; %>
-        <div class="container-fluid classGen">
-            <!-- Contenu du Post -->
+    <div class="container SelSeason border text-center py-1">
+        <div class="container classGen justify-content-center">
+            <!-- Titre du tableau -->
             <div class="row">
-                <div><h4 style="float:left"><%= Team.name %></H4></div>
+                <div class="col-2 text-center"><h4 style="float:left">Position</H4></div>
+                <div class="col-4 text-center"><h4 style="float:left">Club</H4></div>
+                <div class="col-2 text-center"><h4 style="float:left">Points</H4></div>
             </div>
+            <% for (var k = 0; k < listTeams.length; k++) {
+                var Team = listTeams[k]; %>
+                <!-- Contenu du tableau -->
+                <div class="row">
+                    <div class="col-2 text-center"><h4 style="float:left"><%= Team.position %></h4></div>
+                    <div class="col-4 text-center"><h5 style="float:left"><%= Team.name %></h5></div>
+                    <div class="col-2 text-center"><h5 style="float:left"><%= Team.points %></h5></div>
+                </div>
+            <% } %>
         </div>
-    <% } %>
-    
+    </div>
 
     <!-- Top 5 Joueurs -->
     <div class="container-fluid MVP">
