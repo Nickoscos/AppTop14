@@ -1,4 +1,5 @@
 const EventEmitter = require('events');
+require('../config/confAPI')
 let fs = require('fs');
 const event = new EventEmitter;
 
@@ -33,7 +34,7 @@ function classSaison(data, response){
         "port": null,
         "path": "/standings/1230/"+saison.anneeFin,
         "headers": {
-            "X-RapidAPI-Key": "937e22c249msha8bb96df5db449bp1542b3jsn3940f5b01b7d",
+            "X-RapidAPI-Key": XRapidAPIKey,
             "X-RapidAPI-Host": "rugby-live-data.p.rapidapi.com",
             "useQueryString": true
         }
