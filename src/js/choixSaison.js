@@ -1,5 +1,5 @@
 const EventEmitter = require('events');
-require('./config/.envAPI');
+require('../config/.envAPI');
 
 let fs = require('fs');
 const event = new EventEmitter;
